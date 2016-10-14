@@ -26,16 +26,10 @@ var Todo = mongoose.model('Todo', {
     }
 });
 //------------------------------------
-
-
-
-
-
-
-
+/*
 // create a new instance of Todo
 var newTodo = new Todo({
-    //text: 'Buy Flowers.',
+    text: 'Buy Flowers.',
     completed: false,
     completedAt: 8
 });
@@ -46,3 +40,36 @@ newTodo.save().then((doc) => {
 }, (err) => {
     console.log('Unable to save!', err);
 });
+//--------------------------------------
+*/
+
+// User ----> mongoDB truns name into "users"!!!!!!
+var User = mongoose.model('User', {
+    email: {
+        type: String,
+        required: true,
+        minlength: 1,
+        trim: true
+    }
+});
+
+var newUser = new User({
+    email: 'x@x.com'
+});
+
+newUser.save().then((doc) => {
+    console.log(JSON.stringify(doc, undefined, 2));
+}, (err) => {
+    console.log('Unable to save! Error:', err);
+});
+
+
+
+
+
+
+
+
+
+
+//
