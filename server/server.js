@@ -11,13 +11,18 @@ mongoose.connect('mongodb://localhost:27017/TodoApp');
 // mongoose Model: -------------------
 var Todo = mongoose.model('Todo', {
     text: {
-        type: String
+        type: String,
+        required: true,
+        minlength: 1,
+        trim: true
     },
     completed: {
-        type: Boolean
+        type: Boolean,
+        default: false
     },
     completedAt: {
-        type: Number
+        type: Number,
+        default: null
     }
 });
 //------------------------------------
@@ -30,7 +35,7 @@ var Todo = mongoose.model('Todo', {
 
 // create a new instance of Todo
 var newTodo = new Todo({
-    text: 'Buy Flowers.',
+    //text: 'Buy Flowers.',
     completed: false,
     completedAt: 8
 });
@@ -39,5 +44,5 @@ var newTodo = new Todo({
 newTodo.save().then((doc) => {
     console.log('Saved:', doc);
 }, (err) => {
-    console.log('Unable to save.', err);
+    console.log('Unable to save!', err);
 });
