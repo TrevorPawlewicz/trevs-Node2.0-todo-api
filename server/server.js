@@ -18,7 +18,7 @@ app.use(bodyParser.json()); // middleware to pass to Express
 app.post('/todos', (req, res) => {
     // create new Todo instance:
     var todo = new Todo({
-        text.req.text
+        text: req.body.text
     });
 
     // save     promise
@@ -49,3 +49,7 @@ app.listen(PORT, () => {
     console.log(`...Server has started on ${PORT}!`);
 });
 //
+
+module.exports = {
+    app: app
+};
