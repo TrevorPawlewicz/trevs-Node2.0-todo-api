@@ -14,7 +14,7 @@ app.use(bodyParser.json()); // middleware to pass to Express
 
 
 // ROUTES-------------------------------------------
-
+// CREATE
 app.post('/todos', (req, res) => {
     // create new Todo instance:
     var todo = new Todo({
@@ -29,8 +29,17 @@ app.post('/todos', (req, res) => {
     });
 });
 
-
-
+// READ
+app.get('/todos', (req, res) => {
+    // get ALL todos in collection
+    Todo.find().then((todos) => {
+        res.send({
+            todos: todos
+        }, (err) => {
+            res.status(400).send(err);
+        });
+    });
+});
 
 
 
