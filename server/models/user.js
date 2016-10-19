@@ -5,7 +5,7 @@ var mongoose = require('mogoose');
 
 
 
-// User ----> mongoDB truns name into "users"!!!!!!
+// User ----> mongoDB turns name into "users"!!!!!!
 var User = mongoose.model('User', {
     email: {
         type: String,
@@ -25,6 +25,11 @@ newUser.save().then((doc) => {
     console.log('Unable to save! Error:', err);
 });
 //-------------------------------------------------
+
+
+
+
+
 
 
 
